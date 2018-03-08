@@ -22,15 +22,15 @@ def contar_organismos():
 	consejerias=doc.findall("consejeria")
 	lista=[]
 	for i in consejerias:
-		contador=0
-		if i.find("organismo"):
-			numorganismo=i.findall("organismo")
-			for j in numorganismo:
-				lista.append(i.find("organismo/nombre").text)
+		organismos=i.findall("organismo")
+		lista.append(len(organismos))
 	return lista
 
 for i in nombre_consejerias():
 	print("-",i)
 
-for i in contar_organismos():
-	print(i,"->",j)
+conteo=zip(nombre_consejerias(),contar_organismos())
+
+for i in conteo:
+	print(i[0],"->",i[1])
+
