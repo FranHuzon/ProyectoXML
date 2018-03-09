@@ -27,9 +27,15 @@ def contar_organismos():
 
 def filtra_organismos(subcad):
 
+	doc=etree.parse('consejerias_madrid.xml')
 
-
-
+	organismos=doc.findall("/consejeria/organismo")
+	lista=[]
+	for i in organismos:
+		if subcad in i.find("nombre").text:
+			lista.append(i.find("nombre").text.replace("\n","").replace("\t",""))
+		
+	return lista
 
 
 
@@ -44,10 +50,13 @@ print()
 conteo=zip(nombre_consejerias(),contar_organismos())
 
 for i in conteo:
-	print(i[0],"->",i[1])
+	print("-",i[0],"->",i[1])
 
 print()
 print("-"*50)
 print()
 
 subcad=input("Introduce una subcadena: ")
+print("Estos son los organismos que contienen la subcadena introducidad:")
+for i in filtra_organismos(subcad):
+	print("-",i)
