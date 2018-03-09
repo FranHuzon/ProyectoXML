@@ -25,7 +25,7 @@ def contar_organismos():
 		lista.append(len(organismos))
 	return lista
 
-#def filtra_organismos(subcad):
+def filtra_organismos(subcad):
 
 
 
