@@ -56,7 +56,30 @@ def filtra_datos_consejeria(subcad):
 					lista2.append("0")
 	return zip(lista,lista2)
 
-def 
+def datos_centro(consejeria,centro):
+
+	doc=etree.parse('consejerias_madrid.xml')
+
+	consejerias=doc.findall("consejeria")
+	listanombre=[]
+	listadireccion=[]
+	listapostal=[]
+	listaresponsable=[]
+	for i in consejerias:
+		if consejeria==i.find("nombre").text.replace("\n","").replace("\t",""):
+			pedida=i.findall("organismo/centro")
+			for j in pedida:
+				if centro==j.find("nombre").text.replace("\n","").replace("\t","") and j.find("responsable") is not None:
+					listanombre.append(j.find("nombre").text.replace("\n","").replace("\t",""))
+					listadireccion.append(j.find("direccion").text.replace("\n","").replace("\t",""))
+					listapostal.append(j.find("codigopostal").text.replace("\n","").replace("\t",""))
+					listaresponsable.append(j.find("responsable").text.replace("\n","").replace("\t",""))
+				elif centro==j.find("nombre").text.replace("\n","").replace("\t","") and j.find("responsable") is None:
+					listanombre.append(j.find("nombre").text.replace("\n","").replace("\t",""))
+					listadireccion.append(j.find("direccion").text.replace("\n","").replace("\t",""))
+					listapostal.append(j.find("codigopostal").text.replace("\n","").replace("\t",""))
+					listaresponsable.append("0")
+	return zip(listanombre,listadireccion,listapostal,listaresponsable)
 
 
 for i in nombre_consejerias():
@@ -96,3 +119,12 @@ print()
 print("-"*50)
 print()
 
+consejeria=input("Introduce una consejería: ")
+centro=input("Introduce un centro: ")
+
+
+for i in datos_centro(consejeria,centro):
+	if i[3]=="0":
+		print("Los datos del centro",i[0],"son :", i[1],";",i[2],";","Este organismo no tiene una persona como responsable")
+	else:
+		print("Los datos del centro",i[0],"son :", i[1],";",i[2],";",i[3])
