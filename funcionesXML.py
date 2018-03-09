@@ -56,6 +56,9 @@ def filtra_datos_consejeria(subcad):
 					lista2.append("0")
 	return zip(lista,lista2)
 
+def 
+
+
 for i in nombre_consejerias():
 	print("-",i)
 
@@ -88,3 +91,8 @@ for i in filtra_datos_consejeria(subcad):
 		print("-",i[0],"->","Este organismo no tiene una persona como responsable")
 	else:
 		print("-",i[0],"->",i[1])
+
+print()
+print("-"*50)
+print()
+
