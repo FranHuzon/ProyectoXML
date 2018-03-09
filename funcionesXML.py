@@ -26,11 +26,28 @@ def contar_organismos():
 		lista.append(len(organismos))
 	return lista
 
+def filtra_organismos(subcad):
+
+
+
+
+
+
+
+
 for i in nombre_consejerias():
 	print("-",i)
+
+print()
+print("-"*50)
+print()
 
 conteo=zip(nombre_consejerias(),contar_organismos())
 
 for i in conteo:
 	print(i[0],"->",i[1])
+
+print()
+print("-"*50)
+print()
 
