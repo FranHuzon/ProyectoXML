@@ -1,3 +1,6 @@
+from lxml import tree
+from funcionesXML import nombre_consejerias,contar_organismos,filtra_datos_consejeria,datos_centro
+
 for i in nombre_consejerias():
 	print("-",i)
 
