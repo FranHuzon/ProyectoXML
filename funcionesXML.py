@@ -1,5 +1,3 @@
-from lxml import etree
-
 def nombre_consejerias():
 	
 	doc=etree.parse('consejerias_madrid.xml')
@@ -12,7 +10,6 @@ def nombre_consejerias():
 		lista.append(nombre.text.replace("\n","").replace("\t",""))
 
 	return lista
-
 
 def contar_organismos():
 
