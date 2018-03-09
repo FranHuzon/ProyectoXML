@@ -9,10 +9,9 @@ def nombre_consejerias():
 	lista2=[]
 	for i in consejerias:
 		nombre=i.find("nombre")
-		lista.append(nombre.text.replace("\n\t\t\t",""))
-	for elem in lista:
-		lista2.append(elem.replace("\n\t\t",""))
-	return lista2
+		lista.append(nombre.text.replace("\n","").replace("\t",""))
+
+	return lista
 
 
 def contar_organismos():
@@ -26,7 +25,7 @@ def contar_organismos():
 		lista.append(len(organismos))
 	return lista
 
-def filtra_organismos(subcad):
+#def filtra_organismos(subcad):
 
 
 
@@ -51,3 +50,4 @@ print()
 print("-"*50)
 print()
 
+subcad=input("Introduce una subcadena: ")
