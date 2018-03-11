@@ -1,3 +1,5 @@
+from lxml import etree
+
 def nombre_consejerias():
 	
 	doc=etree.parse('consejerias_madrid.xml')
